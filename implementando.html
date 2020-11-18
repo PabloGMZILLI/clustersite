@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Passo a passo implementando um cluster</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Clusters e Cloud Computing <span>by imed</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="implementando.html">Implementando um cluster</a></li>
+					<li><a href="futuro.html">Futuro dos Clusters</a></li>
+				</ul>
+			</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>Aprenda:</p>
+						<h2>Passo a passo da implementação de um cluster</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<div class="content">
+							<header class="align-center">
+								<p>Aprenda o passo a passo para implementar um cluster</p>
+								<h2>Implementando um Cluster</h2>
+							</header>
+							<h3>O que é cluster?</h3>
+							<p>Cluster (ou clustering) é, em poucas palavras, o nome dado a um sistema que relaciona dois ou mais computadores para que estes trabalhem de maneira conjunta no intuito de processar uma tarefa. Estas máquinas dividem entre si as atividades de processamento e executam este trabalho de maneira simultânea.</p>
+							<img class='img-align' src="images/reportagens/clusters.png" alt="" />
+							<p>Cada computador que faz parte do cluster recebe o nome de nó (ou node). Teoricamente, não há limite máximo de nós, mas independentemente da quantidade de máquinas que o compõe, o cluster deve ser "transparente", ou seja, ser visto pelo usuário ou por outro sistema que necessita deste processamento como um único computador.</p>
+							<p>A computação em cluster se mostra muitas vezes como uma solução viável porque os nós podem até mesmo ser compostos por computadores simples, como PCs de desempenho mediano. Juntos, eles configuram um sistema de processamento com capacidade suficiente para dar conta de determinadas aplicações que, se fossem atendidas por supercomputadores ou servidores sofisticados, exigiriam investimentos muito maiores.</p>
+
+							<img class='img-align' src="images/reportagens/Cluster-types.png" alt="" />
+							<h3>Tipos de clusters</h3>
+							<p>Há uma enormidade de aplicações que só podem ser atendidas satisfatoriamente com computação de alto desempenho: sistemas meteorológicos, ferramentas de mapeamento genético, simuladores geotérmicos, programas de renderização de imagens tridimencionais, entre tantos outros. Com o advento da computação em nuvens, este cenário se torna ainda mais amplo: pode-se ter uma infraestrutura tecnológica respondendo a vários clientes simultaneamente de maneira remota, por exemplo.</p>
+							<h3>Cluster Beowulf</h3>
+							<p>Um cluster do tipo Beowulf é considerado especificamente dedicado ao processamento paralelo e enquadra-se na taxonomia de Flynn como MIMD. Possuí uma arquitetura de diversos computadores formados por um nó controlador (frontend) e nós clientes (backends), interligados através de uma rede Ethernet ou outra tecnologia de rede qualquer, dedicada exclusivamente para a passagem de mensagens, com um sistema operacional que implemente estruturas PVM e/ou MPI, para realizar uma comunicação que otimize o processamento paralelo. O nó controlador tem como função controlar, monitorar e distribuir tarefas entre o cluster, além de atuar como um elo entre ele e os usuários.</p>
+							<h3>Passo a passo para implementação física de um cluster Beowulf</h3>
+							<p>Para implementação de um Cluster Beowulf são necessários 2 ou mais computadores, onde um é chamado de nó mestre ou controlador (com duas placas de rede, uma on board e outra off board) e os demais nós escravos – sendo todos ligados em rede através de um switch e utilizando sistema operacional Linux.</p>
+							<p><b>Computador mestre:</b></p>
+							<p> Processador AMD Athlon ™ XP 2600 +; </p>
+							<p> 128 MB de memória RAM; </p>
+							<p> Gravadora de CD LG 8527B;</p>
+							<p> Placa de rede on-board VIA PCI 10/100Mb Fast Ethernet Adapter; </p>
+							<p> Placa de rede off-board Realtek RTL 8139 Family PCI Fast Ethernet NIC;</p>
+							<p> Disco rígido de 40Gb (somente 30Gb foram utilizados para o projeto);</p>
+							<p> Monitor de 15” VGA;</p>
+							<p> Mouse Microsoft PS/2;</p>
+							<p> Teclado de 120 teclas.</p>
+							<p><b>Computadores escravos:</b></p>
+							<p>• Quantidade: 02 (dois)</p>
+							<p>• 256 MB de memória RAM;</p>
+							<p>• Placa de rede on-board VIA PCI 10/100Mb Fast Ethernet Adapter;</p>
+							<p>• Placa de rede off-board Realtek RTL 8139 Family PCI Fast Ethernet NIC;</p>
+							<p>• Disco rígido de 40Gb (somente 30Gb foram utilizados para o projeto).</p>
+							<p><b>Instalação do RedHat:</b></p>
+							<p>Para efetuar a instalação, são utilizados os 3 cds do Red Hat Linux 9. Inserido o primeiro Cd – a tela inicial da instalação é mostrada, e iniciado o processo de Boot do Red Hat Linux 9, os seguintes procedimentos são necessários para instalação do sistema em modo texto para uma estação de trabalho:</p>
+							<img class='img-align' src="images/reportagens/redhat.png" alt="" />
+							<p>- Iniciar o processo de instalação, digitando linux text, na frente da palavra boot (após isso, inicia-se o processo de carregamento do instalador do Red Hat Linux, conhecido como Anaconda e o reconhecimento do hardware do computador);</p>
+							<p>- Escolher o idioma de instalação do sistema Red Hat Linux (possui suporte ao português);</p>
+							<p>- Escolher o tipo de teclado (geralmente br-abnt 2);</p>
+							<p>- Escolher o tipo de mouse;</p>
+							<p>- Escolher o tipo de instalação que será usado (é recomendável escolher estação de trabalho); </p>
+							<p>- Particionar o disco rígido (Hard Disc, HD ou Winchester), de forma a criar a partição Raiz (o Red Hat Linux possui três formas de particionamento, sendo duas formas da própria distribuição e uma de uso comum, que é o fdisk. Por se tratar de uma instalação para uso pessoal, deve ser usado o Disk druid que é um particionador em modo gráfico);</p>
+							<p>- Definir o gerenciador de boot para o sistema Linux – lembrando que o gerenciador de boot é responsável pela tela exibida ao iniciar o sistema Red Hat Linux pela primeira vez, após a instalação, o mesmo pode ser usado para iniciar também outros sistemas operacionais;</p>
+							<p>- Definir os parâmetros que devem ser especificados no carregamento do sistema como suporte a dispositivo SCSI, Vídeo, etc.</p>
+							<p>- Configurar a rede, definindo as configurações para que a máquina possa acessar a rede e a internet</p>
+							<img class='img-align' src="images/reportagens/redhat2.png" alt="" />
+							<p>- Definir o nome da máquina, lembrando que o nome não pode existir na rede;</p>
+							<p>- Definir o fuso horário do país/região;</p>
+							<p>- Definir a senha do usuário root;</p>
+							<p>- Instalar o sistema, lembrando daqui para frente o processo segue por conta do sistema, com exceção da troca de mídias, durante o processo. início efetivo da instalação do Red Hat Linux 9.0.</p>
+							<img class='img-align' src="images/reportagens/redhat3.png" alt="" />
+							<p>Após a instalação de todos os pacotes, o sistema solicitará a criação de um disco de boot, o que é recomendável, mas é possível optar por não utilizá-lo, logo após o sistema apresentará uma tela informando a finalização do processo de instalação e será solicitado o reboot do sistema.</p>
+							<p>A configuração é feita a partir dos seguintes passos: </p>
+							<p>1. Configurar os endereços lógicos (IP) para o controlador mestre e os nós escravos;</p>
+							<p>2. Projetar um ambiente de resolução de nomes;</p>
+							<p>3. Criar um relacionamento de confiança entre as máquinas;</p>
+							<p>4. Permitir o uso de comandos remotos para colocar as aplicações em execução nos nós;</p>
+							<p>5. Configurar o servidor do Sistema de Arquivos (NFS - Network File System);</p>
+							<p>6. Promover a sincronização dos relógios dos nós através do NTP (Network Time Protocol).</p>
+							<p>A permissão para uso de comandos remotos pelo protocolo RSH e por algumas aplicações de monitoramento é concedida através do arquivo .rhost, localizado no diretório /root. Seguindo o formato: </p>
+							<p> <code>mestre</code></p>
+							<p><code>escravo1</code></p>
+							<p><code>escravo2</code></p>
+							<p>O funcionamento ideal deste arquivo só ocorre com a liberação e habilitação do uso do rsh, rlogin e rcp ao usuário. Isto é feito através da adição das seguintes linhas no arquivo /etc/securetty: </p>
+							<p><code>rsh</code></p>
+							<p><code>rlogin </code></p>
+							<p>Em seguida, os serviços rsh, rlogin e rcp devem ser habilitados através do comando ntsysv, no terminal, e o xinetd deve ser reiniciado com o comando ./xinetd restart. Estes procedimentos são feitos em todas as máquinas.</p> 
+							<p><b>Configurando o Servidor de Sistemas de Arquivos:</b></p>
+							<p>No computador mestre, adiciona-se ao final do arquivo /etc/exports o seguinte conteúdo: </p>
+							<p><code>/home *(rw,no_root_squash)</code></p>
+							<p><code>/usr/local *(rw,no_root_squash)</code></p>
+							<p><code>Onde: rw -> escrita e leitura;</code></p>
+							<p><code>no_root_squash -> privilégios de superusuário.</code></p>
+							<p>Para finalização desta tarefa, é necessária a reiniciação do serviço NFS em todos os nós do cluster, primeiramente no mestre. No terminal, deve ser executado: </p>
+							<p><code>	cd /etc/rc.d/init.d</code></p>
+							<p><code>./nfs stop</code></p>
+							<p><code>./nfs start</code></p>
+							<p><code>ntsysv (Habilitação do servidor NFS automaticamente)</code></p>
+							<p></p>
+							<p><b>Configurando o Servidor de Tempo:</b></p>
+							<p>Em todos os nós é executado no terminal: </p>
+							<p><code>touch /etc/ntp.drift</code></p>
+							<p>No nó mestre, o arquivo /etc/ntp.conf é editado de forma a seguir o seguinte padrão: </p>
+							<p><code>server 127.127.1.0 prefer</code></p>
+							<p><code>fudge 127.127.1.0 stratum 0</code></p>
+							<p><code>driftfile /etc/ntp/drift </code></p>
+							<p><code>authenticate no </code></p>
+							<p>Enquanto nos nós escravos esse mesmo arquivo, /etc/ntp.conf segue como:</p>
+							<p><code>	server 192.168.0.221 </code></p>
+							<p><code>driftfile /etc/ntp/drift </code></p>
+							<p><code>authenticate no</code> </p>
+							<p>E deve ser executado no terminal: </p>
+							<p><code>ntpdate 192.168.0.221</code></p>
+							<p>E por fim, em todos os nós, primeiramente no mestre, o daemon ntpd deve ser ativado executando no terminal o comando: </p>
+							<p><code>service ntpd start</code></p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Grupo C. Todos os direitos reservados.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
